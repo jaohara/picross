@@ -1,0 +1,56 @@
+@import "../../style/common.scss";
+
+$cellSize: 32px;
+$guideWidth: 2px;
+
+$borderColor: $grayLight;
+$emptyColor: $gray;
+$filledColor: $grayLight;
+$hoverBorderColor: $orange;
+$guideColor: $orange;
+
+.PuzzleGrid__Wrapper {
+  background-color: $gray;
+  border-radius: $commonBorderRadius;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  // width: fit-content;
+}
+
+.PuzzleGrid__Row {
+  display: flex;
+
+  & .PuzzleGrid__Cell:last-of-type {
+    border-right: 1px solid $borderColor;
+  }
+
+  &:last-of-type .PuzzleGrid__Cell {
+    border-bottom: 1px solid $borderColor;
+  }
+}
+
+.PuzzleGrid__Cell {
+  border-top: 1px solid $borderColor;
+  border-left: 1px solid $borderColor;
+  height: $cellSize;
+  width: $cellSize;
+
+  &.empty {
+    background-color: $emptyColor;
+  }
+
+  &.filled {
+    background-color: $filledColor;
+  }
+
+  &.guide {
+    border-top: $guideWidth solid $guideColor;
+    border-left: $guideWidth solid $guideColor;
+  }
+
+  &:hover {
+    border: 2px solid $hoverBorderColor !important;
+    transform: scale(1.15);
+  }
+}

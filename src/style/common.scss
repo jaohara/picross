@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;500&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+//fonts
+$mainFont: "JetBrains Mono";
+
+//colors
+$grayDark: #21252b;
+$gray: #282c34;
+$grayLight: #5c6370;
+$grayLight2: #abb2bf;
+$green: #98c379;
+$orange: #d19a66;
+$blue: #61afef;
+$purple: #c678dd;
+$red: #e06c75;
+$fontColor: $grayLight2;
+$headerColor: $blue;
+
+//misc
+$commonBorderRadius: .3rem;
+$commonUiTransitionSpeed: 100ms;
+
+
+//mixins
+@mixin commonUiTransition {
+  $cuts: $commonUiTransitionSpeed;
+  transition: color $cuts, background-color $cuts, border $cuts; 
+}
+
+@mixin verticallyAlignedFlex {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin editorPaneHeader {
+  @include verticallyAlignedFlex();
+  
+  color: $headerColor;
+  margin-top: 0;
+  font-size: 1rem;
+
+  & svg {
+    margin-right: .5rem;
+  }
+}

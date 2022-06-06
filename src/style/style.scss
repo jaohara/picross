@@ -1,0 +1,16 @@
+@import "./common.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: $grayDark;
+  color: $fontColor;
+  font-family: $mainFont;
+}
+
+.App__Wrapper {
+  margin: 1rem auto;
+  width: 1024px;
+}

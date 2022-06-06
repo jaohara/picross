@@ -1,0 +1,53 @@
+@import "../../../style/common.scss";
+
+$hoverColor: $blue;
+$iconColor: $hoverColor;
+$iconMargin: .5rem;
+
+.Controls__Button {
+  @include commonUiTransition;
+
+  align-items: center;
+  background-color: $gray;
+  border: 1px solid $gray;
+  border-radius: $commonBorderRadius;
+  color: $fontColor;
+  display: flex;
+  font-family: $mainFont;
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &.right-icon {
+    flex-direction: row-reverse;
+  }
+
+  & > .Button__Icon {
+    color: $iconColor;
+  }
+
+  &:hover {
+    // background-color: $grayLight;
+    border: 1px solid $hoverColor;
+    cursor: pointer;
+
+    & > .Button__Icon {
+      // color: $fontColor;
+    }
+  }
+}
+
+.Button__Icon {
+  margin-right: $iconMargin;
+
+  .right-icon > & {
+    margin-right: 0;
+    margin-left: $iconMargin;
+  }
+}
+
+.Button__Icon, .Button__Text {
+  @include verticallyAlignedFlex;
+}
+

@@ -1,2 +1,84 @@
-@use '../../style/common.scss'
+@import '../../style/common.scss';
 
+$headerColor: $blue;
+
+.EditorControls__Wrapper, .OutputPane__Wrapper, .CellPane__Wrapper, .PalettePane__Wrapper {
+  background-color: $gray;
+  border-radius: $commonBorderRadius;
+  padding: 1rem;
+}
+
+.Editor__Wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5.5rem;
+  
+  & > * {
+    margin-bottom: 1rem;
+  }
+}
+
+.Editor__MainGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.EditorControls__Wrapper {
+  @include verticallyAlignedFlex;
+
+  & .Controls__Button {
+    margin-right: .5rem;
+  }
+}
+
+.EditorControls__Wrapper, .OutputPaneWrapper {
+  width: 100%;
+}
+
+.EditorControls__Wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  & input {
+    margin-right: .5rem;
+  }
+}
+
+.EditorPane__Wrapper {
+  width: 55%;
+}
+
+.CellPane__Wrapper, .PalettePane__Wrapper {
+  width: 21%;
+}
+
+.OutputPane__Wrapper, .PalettePane__Wrapper, .CellPane__Wrapper, .EditorPane__Wrapper {
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    @include editorPaneHeader;
+  }
+}
+
+.OutputPane__Content {
+  max-height: 33vh;
+  min-height: 33vh;
+  overflow-y: scroll;
+
+  & .prompt {
+    color: $blue;
+  }
+}
+
+.OutputPane__Controls {
+  @include verticallyAlignedFlex;
+
+  margin-bottom: .5rem;
+
+  & .Controls__Button {
+    margin-right: .5rem;
+  }
+}

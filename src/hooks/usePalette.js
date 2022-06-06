@@ -1,29 +1,38 @@
 import { useState } from "react";
 
-const usePalette = () => {
-  const [ palette, setPalette] = useState([]);
+const usePalette = (initialColors = []) => {
+  const [ name, setName ] = useState("New Palette");
+  const [ colors, setColors] = useState(initialColors);
 
-  const hasColor = (color) => palette.contains(color);
+  const hasColor = (color) => colors.includes(color);
 
   const addColor = (color) => {
     if (hasColor(color)) return false;
-    setPalette([...palette, color]);
+    setColors([...colors, color]);
     return true;
   };
 
   const removeColor = (color) => {
     if (!hasColor(color)) return false;
-    setPalette([...palette.filter(item => item !== color)]);
+    setColors([...colors.filter(item => item !== color)]);
     return true;
   };
 
   const changeColor = (oldColor, newColor) => {
     if (!hasColor(oldColor)) return false;
-    setPalette([...palette.map(item => item === oldColor ? newColor : item)]);
+    setColors([...colors.map(item => item === oldColor ? newColor : item)]);
     return true;
   };
 
-  return palette;
+  return {
+    addColor: addColor,
+    changeColor: changeColor,
+    colors: colors,
+    hasColor: hasColor,
+    name: name,
+    removeColor: removeColor,
+    setName: setName,
+  };
 };
 
 export default usePalette;

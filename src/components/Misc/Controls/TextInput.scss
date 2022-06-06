@@ -1,0 +1,26 @@
+@import "../../../style/common.scss";
+
+$activeBorderColor: $blue;
+$inactiveBorderColor: $grayLight;
+$backgroundColor: $gray;
+
+.Controls__TextInput {
+  @include commonUiTransition;
+  background-color: $backgroundColor;
+  border-radius: $commonBorderRadius;
+  border: 1px solid $inactiveBorderColor;
+  color: $fontColor;
+  font-family: $mainFont;
+  outline: none;
+  padding: .5rem;
+  width: 100%;
+
+  &:focus, &:hover, &:active {
+    border: 1px solid $activeBorderColor;
+    outline: none;
+  }
+}
+
+.TextInput__Wrapper {
+  @include verticallyAlignedFlex;
+}
