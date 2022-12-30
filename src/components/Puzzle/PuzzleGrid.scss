@@ -21,19 +21,36 @@ $guideColor: $orange;
 .PuzzleGrid__Row {
   display: flex;
 
+  & .PuzzleGrid__Cell:first-of-type {
+    border-left: 2px solid $borderColor;
+  }
+
   & .PuzzleGrid__Cell:last-of-type {
-    border-right: 1px solid $borderColor;
+    border-right: 2px solid $borderColor;
+  }
+
+  &:first-of-type .PuzzleGrid__Cell {
+    border-top: 2px solid $borderColor;
   }
 
   &:last-of-type .PuzzleGrid__Cell {
-    border-bottom: 1px solid $borderColor;
+    border-bottom: 2px solid $borderColor;
   }
+
 }
 
 .PuzzleGrid__Cell {
-  border-top: 1px solid $borderColor;
-  border-left: 1px solid $borderColor;
+  border: 1px solid $borderColor;
+  // border: 1px solid transparent;
+  // border-top: 1px solid $borderColor;
+  // border-left: 1px solid $borderColor;
   height: $cellSize;
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
   width: $cellSize;
 
   &.empty {
@@ -50,7 +67,11 @@ $guideColor: $orange;
   }
 
   &:hover {
-    border: 2px solid $hoverBorderColor !important;
-    transform: scale(1.15);
+    filter: brightness(1.5);
+    border-color: $hoverBorderColor;
+    // border: 2px solid $hoverBorderColor !important;
+    // margin-top: -2px;
+    // padding-left: -1px;
+    // transform: scale(1.15);
   }
 }

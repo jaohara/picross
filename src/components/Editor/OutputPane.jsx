@@ -4,7 +4,7 @@ import Button from "../Misc/Controls/Button";
 
 const promptChar = ">"
 
-const OutputPane = ({palette, puzzle}) => {
+const OutputPane = ({puzzle}) => {
   const [ logBody, setLogBody ] = useState(initialLog());
 
   function initialLog() {

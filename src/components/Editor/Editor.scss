@@ -36,12 +36,17 @@ $headerColor: $blue;
 }
 
 .EditorControls__Wrapper {
+  border-bottom: 2px solid $blue;
   position: fixed;
   top: 0;
   left: 0;
 
-  & input {
+  & input, & > svg {
     margin-right: .5rem;
+  }
+
+  & > svg {
+    color: $headerColor;
   }
 }
 
@@ -81,4 +86,8 @@ $headerColor: $blue;
   & .Controls__Button {
     margin-right: .5rem;
   }
+}
+
+.cell-coords {
+  margin-left: 1rem;
 }

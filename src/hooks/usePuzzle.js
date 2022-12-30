@@ -73,6 +73,11 @@ const usePuzzle = (puzzleString = undefined, height = 10, width = 10) => {
     }));
   };
 
+  const getCell = (x, y) => {
+    if (!(x < width && y < height && x > 0 && y > 0)) return null;
+    return grid[x][y];
+  };
+
   // TODO: Test this function too, which editCell depends on
   const isValidCell = (cell) => {
     return cell !== null && cell !== undefined && typeof cell === 'object' &&
@@ -95,6 +100,7 @@ const usePuzzle = (puzzleString = undefined, height = 10, width = 10) => {
     editAuthor: setAuthor,
     editCell: editCell,
     editName: setName,
+    getCell: getCell,
     grid: grid,
     height: height,
     name: name,

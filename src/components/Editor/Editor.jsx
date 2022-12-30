@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./Editor.scss";
 
 import CellPane from "./CellPane";
@@ -10,6 +11,19 @@ import usePuzzle from "../../hooks/usePuzzle";
 
 const Editor = ({}) => {
   const puzzle = usePuzzle();
+  const [ hoverCellCoords, setHoverCellCoords ] = useState({});
+  const [ selectedCell, setSelectedCell ] = useState(null);
+  const [ selectedCellCoords, setSelectedCellCoords ] = useState({}); 
+
+  const paneCommonProps = {
+    hoverCellCoords: hoverCellCoords,
+    puzzle: puzzle,
+    setHoverCellCoords: setHoverCellCoords,
+    selectedCell: selectedCell,
+    setSelectedCell: setSelectedCell,
+    selectedCellCoords: selectedCellCoords,
+    setSelectedCellCoords: setSelectedCellCoords,
+  };
 
   return (
     <div className="Editor__Wrapper">
@@ -19,16 +33,19 @@ const Editor = ({}) => {
 
       <div className="Editor__MainGroup">
         <EditorPane
-          puzzle={puzzle}
+          {...paneCommonProps}
         />
-        <CellPane />
+        <CellPane 
+          {...paneCommonProps}       
+        />
         <PalettePane 
           palette={puzzle.palette}
+          {...paneCommonProps}
         />
       </div>
 
       <OutputPane 
-        puzzle={puzzle}
+        {...paneCommonProps}
       />
     </div>
   );

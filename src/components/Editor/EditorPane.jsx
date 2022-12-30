@@ -2,7 +2,15 @@ import PuzzleGrid from "../Puzzle/PuzzleGrid";
 
 import { BsFillPuzzleFill } from "react-icons/bs";
 
-const EditorPane = ({puzzle}) => {
+const EditorPane = ({
+  hoverCellCoords,
+  puzzle,
+  selectedCell,
+  selectedCellCoords,
+  setHoverCellCoords,
+  setSelectedCell,
+  setSelectedCellCoords,
+}) => {
   return ( 
     <div className="EditorPane__Wrapper">
       <div className="EditorPane__Header">
@@ -16,6 +24,12 @@ const EditorPane = ({puzzle}) => {
       </div>
       <PuzzleGrid 
         puzzle={puzzle}
+        hoverCellCoords={hoverCellCoords}
+        selectedCell={selectedCell}
+        setSelectedCell={setSelectedCell}
+        setHoverCellCoords={setHoverCellCoords}
+        selectedCellCoords={selectedCellCoords}
+        setSelectedCellCoords={setSelectedCellCoords}
       />
     </div> 
   );
